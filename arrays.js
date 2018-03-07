@@ -19,7 +19,16 @@ var instructors = [
 // ---------------------------
 // 1. Find largest number
 // ---------------------------
+	var numbers = [1,12,4,18,9,7,11,3,101,5,6];
+var ans = numbers[0]
 
+for(let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > ans) {
+    ans = numbers[i]
+  } 
+}
+
+console.log(ans)
 
 // ---------------------------
 // 2. Find longest string
