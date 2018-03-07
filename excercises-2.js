@@ -4,6 +4,14 @@
 // if-then-else construct available in JavaScript.
 // ---------------------
 
+function max(a, b) {
+	if(a > b) {
+		return a;
+	} else {
+		return b;
+	}
+}
+
 console.assert(max(2,3) === 3)
 console.assert(max(23,24) === 24)
 console.assert(max(-23, 12) === 12)
@@ -12,6 +20,23 @@ console.assert(max(-23, 12) === 12)
 // Define a function maxOfThree() that takes three 
 // numbers as arguments and returns the largest of them.
 // ---------------------
+
+function maxOfThree(a, b, c) {
+	if(a > b) {
+		if(a > c) {
+			return a;
+		} else {
+			return c;
+		}
+	} 
+	else{		//b > a
+		if (b > c) {
+			return b;
+		} else {
+			return c;
+		}
+	}
+}
 
 console.assert(maxOfThree(2,56,3) === 56)
 console.assert(maxOfThree(12,3,4) === 12)
@@ -23,12 +48,26 @@ console.assert(maxOfThree(-12,4,-5) === 4)
 // vowel, false otherwise.
 // ---------------------
 
+function isVowel(letter) {
+	var vowels = ["a", "e", "i", "o", "u"];
+
+	if (typeof letter === "string"){
+		if (vowels.indexOf(letter.toLowerCase()) !== -1) {
+			return true
+		} else {
+			return false
+		}
+	} else {
+		return false
+	} 
+} 
+
 console.assert(isVowel(0) === false);
 console.assert(isVowel("B") === false);
 console.assert(isVowel("b") === false);
 console.assert(isVowel("a") === true);
 console.assert(isVowel("E") === true);
-console.assert(isVowel("2") === false)
+console.assert(isVowel("2") === false);
 
 // ---------------------
 // Write a function translate() that will translate 
@@ -37,6 +76,25 @@ console.assert(isVowel("2") === false)
 // For example, translate("this is fun") should return 
 // the string "tothohisos isos fofunon".
 // ---------------------
+
+function rovarspraket (str) {
+   var strspl = str.split("")
+   var vowels = ["a", "e", "i", "o", "u"];
+   var emp = []
+   
+   strspl.forEach(function(x) {
+     if (vowels.indexOf(x) >= 0 && typeof x === "string") {
+       emp.push(x)
+     } else if (vowels.indexOf(x) === -1 && typeof x === "string") {
+       emp.push(x + "o" + x)
+     } else {
+       emp.push(x)
+     }
+     
+   })
+   var answer = emp.join("");
+     return answer
+ }
 
 console.assert(rovarspraket("a") === "a")
 console.assert(rovarspraket("b") === "bob")
@@ -51,6 +109,23 @@ console.assert(rovarspraket(0) === "0")
 // return the string "ratset gaj".
 // ---------------------
 
+function reverse(str) {
+   var strspl = str.split("");
+   var rev = [];
+   
+   strspl.forEach(function(x) {
+     rev.unshift(x);
+   })
+   return rev.join("");
+ }
+
 
 console.assert(reverse("books") === "skoob")
- console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew")
+console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew")
+
+
+
+
+
+
+
