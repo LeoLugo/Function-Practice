@@ -88,7 +88,7 @@ function rovarspraket (str) {
      } else if (vowels.indexOf(x) === -1 && typeof x === "string") {
        emp.push(x + "o" + x)
      } else {
-       emp.push(x)
+       emp.push(x.toString())
      }
      
    })
